@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation"
     app:startDestination="@id/loginFragment">
-
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.chgonzalez.shoestore.login.LoginFragment"
@@ -11,6 +10,14 @@
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.chgonzalez.shoestore.welcome.WelcomeFragment"
+        android:label="WelcomeFragment">
+        <action
+            android:id="@+id/action_welcomeFragment_to_shoeFragment"
+            app:destination="@id/shoeFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoeFragment"
@@ -27,13 +34,8 @@
         <action
             android:id="@+id/action_detailFragment_to_shoeFragment"
             app:destination="@id/shoeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.chgonzalez.shoestore.welcome.WelcomeFragment"
-        android:label="WelcomeFragment">
-        <action
-            android:id="@+id/action_welcomeFragment_to_shoeFragment"
-            app:destination="@id/shoeFragment" />
+        <argument
+            android:name="shoesArgs"
+            app:argType="com.chgonzalez.shoestore.utils.Shoe" />
     </fragment>
 </navigation>

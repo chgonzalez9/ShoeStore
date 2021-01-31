@@ -12,8 +12,6 @@ import com.chgonzalez.shoestore.databinding.WelcomeFragmentBinding
 
 class WelcomeFragment : Fragment() {
 
-    private lateinit var viewModel: WelcomeViewModel
-
     private lateinit var binding: WelcomeFragmentBinding
 
     override fun onCreateView(
@@ -23,9 +21,8 @@ class WelcomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.welcome_fragment, container, false)
 
-        binding.nextButton.setOnClickListener {
-            view?.findNavController()
-                ?.navigate(WelcomeFragmentDirections.actionWelcomeFragmentToShoeFragment())
+        binding.nextButton.setOnClickListener { view ->
+            view.findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToShoeFragment())
         }
 
         return binding.root

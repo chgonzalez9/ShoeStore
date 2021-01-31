@@ -12,14 +12,20 @@ import com.chgonzalez.shoestore.databinding.ListItemsBinding
 class ShoeAdapter(private var shoes: MutableList<Shoe>) :
     RecyclerView.Adapter<ShoeAdapter.ViewHolder>() {
 
+    var data = listOf<Shoe>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     private lateinit var binding: ListItemsBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoeAdapter.ViewHolder {
         binding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
-            R.layout.list_items,
-            parent,
-            false
+                LayoutInflater.from(parent.context),
+                R.layout.list_items,
+                parent,
+                false
         )
 
         return ViewHolder(binding.root)
@@ -29,9 +35,7 @@ class ShoeAdapter(private var shoes: MutableList<Shoe>) :
         val shoe = shoes[position]
 
         holder.name.text = shoe.name
-        holder.size.text = shoe.size.toString()
         holder.company.text = shoe.company
-        holder.description.text = shoe.description
     }
 
     override fun getItemCount(): Int {
@@ -40,9 +44,6 @@ class ShoeAdapter(private var shoes: MutableList<Shoe>) :
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name: TextView = view.findViewById(R.id.nameAnswer)
-        val size: TextView = view.findViewById(R.id.sizeAnswer)
         val company: TextView = view.findViewById(R.id.companyAnswer)
-        val description: TextView = view.findViewById(R.id.descriptionAnswer)
     }
-
 }

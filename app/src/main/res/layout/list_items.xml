@@ -6,93 +6,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/shoeIcon"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/zapatos_icon"
-            app:layout_constraintEnd_toStartOf="@id/itemsContainer"
+
+        <TextView
+            android:id="@+id/shoeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shoeName"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nameAnswer"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/itemsContainer"
+        <TextView
+            android:id="@+id/nameAnswer"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/shoeName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/shoeIcon"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@id/shoeName"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/shoeName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/shoeName"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/shoeCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shoeCompany"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/companyAnswer"
+            app:layout_constraintTop_toBottomOf="@id/shoeName" />
 
-            <TextView
-                android:id="@+id/nameAnswer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/shoeName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/shoeName"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/companyAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/shoeCompany"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/shoeCompany"
+            app:layout_constraintTop_toBottomOf="@id/nameAnswer" />
 
-            <TextView
-                android:id="@+id/shoeSize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/shoeSize"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/shoeName" />
-
-            <TextView
-                android:id="@+id/sizeAnswer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/shoeSize"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/shoeSize"
-                app:layout_constraintTop_toBottomOf="@id/nameAnswer" />
-
-            <TextView
-                android:id="@+id/shoeCompany"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/shoeCompany"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/shoeSize" />
-
-            <TextView
-                android:id="@+id/companyAnswer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/shoeCompany"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/shoeCompany"
-                app:layout_constraintTop_toBottomOf="@id/sizeAnswer" />
-
-            <TextView
-                android:id="@+id/shoeDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/shoeDescription"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/shoeCompany" />
-
-            <TextView
-                android:id="@+id/descriptionAnswer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/shoeDescription"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/shoeDescription"
-                app:layout_constraintTop_toBottomOf="@id/companyAnswer" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -34,8 +34,7 @@ class LoginFragment : Fragment() {
             setUser()
 
             if (authenticated()) {
-                view.findNavController()
-                    .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+                view.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
             }
         }
 
@@ -43,8 +42,7 @@ class LoginFragment : Fragment() {
             setUser()
 
             if (authenticated()) {
-                view.findNavController()
-                    .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+                view.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
             }
         }
     }
