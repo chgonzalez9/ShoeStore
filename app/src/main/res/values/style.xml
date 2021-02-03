@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="listText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:layout_margin">@dimen/separation_margin</item>
+    </style>
+
+    <style name="loginEditText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">12</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="detailButtons">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/login_button</item>
+        <item name="android:textSize">@dimen/buttonText</item>
+    </style>
+
+</resources>

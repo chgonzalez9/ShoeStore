@@ -1,13 +1,23 @@
 <resources>
     <string name="app_name">Shoe Store</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="emailHint">Email</string>
+    <string name="passwordHint">Password</string>
     <string name="loginButton">Login</string>
     <string name="registerButton">Sign Up</string>
+    <string name="toastText">Please enter a email and password</string>
+    <string name="logoutMenu">Logout</string>
+    <string name="content_description">App Icon</string>
+    <string name="buttonDescription">Add shoe</string>
+    <string name="shoeTitle">Shoe List</string>
+    <string name="detailTitle">Detail Shoe</string>
 
     <string name="shoeName">Name</string>
     <string name="shoeSize">Size</string>
     <string name="shoeCompany">Company</string>
     <string name="shoeDescription">Description</string>
+
+    <string name="saveButton">Save</string>
+    <string name="cancelButton">Cancel</string>
+
 </resources>

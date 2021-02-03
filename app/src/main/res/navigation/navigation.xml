@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/loginFragment">
     <fragment
@@ -16,8 +17,8 @@
         android:name="com.chgonzalez.shoestore.welcome.WelcomeFragment"
         android:label="WelcomeFragment">
         <action
-            android:id="@+id/action_welcomeFragment_to_shoeFragment"
-            app:destination="@id/shoeFragment" />
+            android:id="@+id/action_welcomeFragment_to_instructionFragment"
+            app:destination="@id/instructionFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoeFragment"
@@ -34,8 +35,14 @@
         <action
             android:id="@+id/action_detailFragment_to_shoeFragment"
             app:destination="@id/shoeFragment" />
-        <argument
-            android:name="shoesArgs"
-            app:argType="com.chgonzalez.shoestore.utils.Shoe" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.chgonzalez.shoestore.instruction.InstructionFragment"
+        android:label="instruction_fragment"
+        tools:layout="@layout/instruction_fragment">
+        <action
+            android:id="@+id/action_instructionFragment_to_shoeFragment"
+            app:destination="@id/shoeFragment" />
     </fragment>
 </navigation>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -17,50 +18,83 @@
             android:id="@+id/app_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/separation_margin"
             android:src="@drawable/zapatos_icon"
-            app:layout_constraintBottom_toTopOf="@id/emailAddressText"
+            app:layout_constraintBottom_toTopOf="@id/emailContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread" />
+            app:layout_constraintVertical_chainStyle="spread"
+            android:contentDescription="@string/content_description" />
 
-        <EditText
-            android:id="@+id/emailAddressText"
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:id="@+id/emailContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="12"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@id/paswwordText"
+            android:layout_marginBottom="@dimen/separation_margin"
+            app:layout_constraintBottom_toTopOf="@id/passwordContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/app_icon" />
+            app:layout_constraintTop_toBottomOf="@id/app_icon"
+            app:mtf_backgroundColor="#6D9F9A"
+            app:mtf_cardCollapsedHeight="6dp"
+            app:mtf_image="@drawable/email"
+            app:mtf_labelColor="@color/black"
+            app:mtf_openKeyboardOnFocus="true">
 
-        <EditText
-            android:id="@+id/paswwordText"
+            <EditText
+                android:id="@+id/emailAddressText"
+                style="@style/loginEditText"
+                android:autofillHints="@string/emailHint"
+                android:inputType="textEmailAddress"
+                tools:ignore="LabelFor" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
+
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:id="@+id/passwordContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="12"
-            android:inputType="textPassword"
+            android:layout_marginBottom="@dimen/separation_margin"
             app:layout_constraintBottom_toTopOf="@id/loginButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailAddressText" />
+            app:layout_constraintTop_toBottomOf="@id/emailContainer"
+            app:mtf_backgroundColor="#6D9F9A"
+            app:mtf_cardCollapsedHeight="6dp"
+            app:mtf_image="@drawable/password"
+            app:mtf_labelColor="@color/black"
+            app:mtf_openKeyboardOnFocus="true">
+
+            <EditText
+                android:id="@+id/passwordText"
+                style="@style/loginEditText"
+                android:autofillHints="@string/passwordHint"
+                android:inputType="textPassword"
+                tools:ignore="LabelFor" />
+
+        </com.github.florent37.materialtextfield.MaterialTextField>
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/separation_margin"
+            android:background="@drawable/login_button"
             android:text="@string/loginButton"
+            android:textSize="@dimen/buttonText"
             app:layout_constraintBottom_toTopOf="@id/registerText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/paswwordText" />
+            app:layout_constraintTop_toBottomOf="@id/passwordContainer" />
 
         <TextView
             android:id="@+id/registerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_bottom"
             android:text="@string/registerButton"
+            android:textSize="@dimen/textSize"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

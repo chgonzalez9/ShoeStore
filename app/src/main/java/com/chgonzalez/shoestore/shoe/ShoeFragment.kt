@@ -1,24 +1,22 @@
 package com.chgonzalez.shoestore.shoe
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.chgonzalez.shoestore.R
 import com.chgonzalez.shoestore.databinding.ShoeFragmentBinding
+import com.chgonzalez.shoestore.detail.DetailViewModel
+import com.chgonzalez.shoestore.utils.Shoe
 import com.chgonzalez.shoestore.utils.ShoeAdapter
 
 class ShoeFragment : Fragment() {
 
-    private lateinit var viewModel: ShoeViewModel
-
     private lateinit var binding: ShoeFragmentBinding
 
-    private lateinit var adapter: ShoeAdapter
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -27,19 +25,48 @@ class ShoeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.shoe_fragment, container, false)
 
-        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
-
-        binding.lifecycleOwner = this
-
-        binding.shoeList.adapter = adapter
-
-        viewModel.shoe.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                adapter.data = it
-            }
-        })
-
+        binding.addItemButton.setOnClickListener { view ->
+            view.findNavController().navigate(ShoeFragmentDirections.actionShoeFragmentToDetailFragment())
+        }
 
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val detailViewModel = ViewModelProvider(requireActivity()).get(DetailViewModel::class.java)
+
+        binding.lifecycleOwner = this
+
+        setHasOptionsMenu(true)
+
+        detailViewModel.shoe.observe(viewLifecycleOwner, { shoes ->
+            if (shoes.isNotEmpty()) {
+                newShoes(shoes)
+            }
+        })
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.logout_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item)
+    }
+
+    private fun newShoes(shoes: List<Shoe>) {
+        context?.let { context ->
+            val container = binding.shoeList
+            shoes.forEach { shoe ->
+                val shoeLayout = ShoeAdapter(context)
+                shoeLayout.loadShoe(shoe)
+                container.addView(shoeLayout)
+            }
+        }
+    }
+
 }

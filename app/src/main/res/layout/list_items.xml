@@ -4,44 +4,73 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/margin_start"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginEnd="@dimen/margin_end"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/shoeName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/listText"
             android:text="@string/shoeName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/nameAnswer"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/nameAnswer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/listText"
             android:hint="@string/shoeName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/shoeName"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/shoeCompany"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/shoeCompany"
+            android:id="@+id/shoeSize"
+            style="@style/listText"
+            android:text="@string/shoeSize"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/companyAnswer"
             app:layout_constraintTop_toBottomOf="@id/shoeName" />
 
         <TextView
+            android:id="@+id/sizeAnswer"
+            style="@style/listText"
+            android:hint="@string/shoeSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/shoeSize"
+            app:layout_constraintTop_toBottomOf="@id/nameAnswer" />
+
+        <TextView
+            android:id="@+id/shoeCompany"
+            style="@style/listText"
+            android:text="@string/shoeCompany"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoeSize" />
+
+        <TextView
             android:id="@+id/companyAnswer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/listText"
             android:hint="@string/shoeCompany"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/shoeCompany"
-            app:layout_constraintTop_toBottomOf="@id/nameAnswer" />
+            app:layout_constraintTop_toBottomOf="@id/sizeAnswer" />
+
+        <TextView
+            android:id="@+id/shoeDescription"
+            style="@style/listText"
+            android:text="@string/shoeDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoeCompany" />
+
+        <TextView
+            android:id="@+id/descriptionAnswer"
+            style="@style/listText"
+            android:hint="@string/shoeDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/shoeDescription"
+            app:layout_constraintTop_toBottomOf="@id/companyAnswer" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
