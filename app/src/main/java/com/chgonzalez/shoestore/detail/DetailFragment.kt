@@ -2,6 +2,7 @@ package com.chgonzalez.shoestore.detail
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +25,8 @@ class DetailFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.detail_fragment, container, false)
+
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
         return binding.root
     }

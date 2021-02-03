@@ -2,6 +2,7 @@ package com.chgonzalez.shoestore.instruction
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -17,6 +18,8 @@ class InstructionFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.instruction_fragment, container, false)
+
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
         binding.enterButton.setOnClickListener { view ->
             view.findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToShoeFragment())
