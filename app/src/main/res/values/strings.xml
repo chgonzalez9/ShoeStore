@@ -8,6 +8,15 @@
     <string name="toastText">Please enter a email and password</string>
     <string name="logoutMenu">Logout</string>
     <string name="content_description">App Icon</string>
+
+    <string name="welcomeTitle">Welcome</string>
+    <string name="welcomeText">Create your own custome Shoe List</string>
+    <string name="welcomeButton">Enter</string>
+
+    <string name="instructionTitle">Instructions</string>
+    <string name="instructionsText">Click in the add button to create a new element to the list. You can add all the information of the shoes (size, name, company and a description) in the details screen.</string>
+    <string name="instructionButton">Start</string>
+
     <string name="buttonDescription">Add shoe</string>
     <string name="shoeTitle">Shoe List</string>
     <string name="detailTitle">Detail Shoe</string>

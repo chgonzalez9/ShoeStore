@@ -2,42 +2,31 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_top"
-        android:layout_marginStart="@dimen/margin_start"
-        android:layout_marginBottom="@dimen/margin_bottom"
-        android:layout_marginEnd="@dimen/margin_end">
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraints">
 
         <TextView
             android:id="@+id/shoeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_top"
+            style="@style/titleText"
             android:layout_marginBottom="@dimen/separation_margin"
-            android:fontFamily="@font/merriweather_black"
-            android:textStyle="bold"
-            android:textSize="@dimen/titleText"
             android:text="@string/shoeTitle"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
             android:id="@+id/containerScroll"
             android:layout_width="match_parent"
             android:layout_height="550dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/addItemButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/shoeTitle"
-            app:layout_constraintBottom_toTopOf="@id/addItemButton">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoeTitle">
 
             <LinearLayout
                 android:id="@+id/shoeList"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
         </ScrollView>
 
@@ -45,11 +34,11 @@
             android:id="@+id/addItemButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/add"
             android:background="#6D9F9A"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/buttonDescription"
+            android:src="@drawable/add"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:contentDescription="@string/buttonDescription" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

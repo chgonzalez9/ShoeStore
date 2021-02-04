@@ -15,7 +15,7 @@ class InstructionFragment : Fragment() {
     private lateinit var binding: InstructionFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.instruction_fragment, container, false)
 

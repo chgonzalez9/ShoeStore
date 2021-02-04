@@ -3,12 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/margin_start"
-        android:layout_marginTop="@dimen/margin_top"
-        android:layout_marginEnd="@dimen/margin_end"
-        android:layout_marginBottom="@dimen/margin_bottom"
+        style="@style/constraints"
         android:orientation="vertical">
 
         <TextView
@@ -20,7 +15,7 @@
 
         <TextView
             android:id="@+id/nameAnswer"
-            style="@style/listText"
+            style="@style/listText_2"
             android:hint="@string/shoeName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/shoeName"
@@ -35,7 +30,7 @@
 
         <TextView
             android:id="@+id/sizeAnswer"
-            style="@style/listText"
+            style="@style/listText_2"
             android:hint="@string/shoeSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/shoeSize"
@@ -50,7 +45,7 @@
 
         <TextView
             android:id="@+id/companyAnswer"
-            style="@style/listText"
+            style="@style/listText_2"
             android:hint="@string/shoeCompany"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/shoeCompany"
@@ -65,10 +60,9 @@
 
         <TextView
             android:id="@+id/descriptionAnswer"
-            style="@style/listText"
+            style="@style/listText_2"
             android:hint="@string/shoeDescription"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/shoeDescription"
             app:layout_constraintTop_toBottomOf="@id/companyAnswer" />
 

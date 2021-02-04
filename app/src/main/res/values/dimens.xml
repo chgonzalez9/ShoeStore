@@ -9,6 +9,7 @@
 
     <dimen name="titleText">28sp</dimen>
     <dimen name="buttonText">14sp</dimen>
-    <dimen name="textSize">12sp</dimen>
+    <dimen name="listText">16sp</dimen>
+    <dimen name="textViews">24sp</dimen>
 
 </resources>

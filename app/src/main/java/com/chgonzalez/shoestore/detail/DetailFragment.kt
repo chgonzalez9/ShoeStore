@@ -21,7 +21,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.detail_fragment, container, false)

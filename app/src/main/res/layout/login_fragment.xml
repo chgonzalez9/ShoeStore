@@ -10,22 +10,20 @@
             type="com.chgonzalez.shoestore.utils.User" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraints">
 
         <ImageView
             android:id="@+id/app_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginBottom="@dimen/separation_margin"
+            android:contentDescription="@string/content_description"
             android:src="@drawable/zapatos_icon"
             app:layout_constraintBottom_toTopOf="@id/emailContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread"
-            android:contentDescription="@string/content_description" />
+            app:layout_constraintVertical_chainStyle="spread" />
 
         <com.github.florent37.materialtextfield.MaterialTextField
             android:id="@+id/emailContainer"
@@ -44,8 +42,9 @@
 
             <EditText
                 android:id="@+id/emailAddressText"
-                style="@style/loginEditText"
+                style="@style/editText"
                 android:autofillHints="@string/emailHint"
+                android:hint="@string/emailHint"
                 android:inputType="textEmailAddress"
                 tools:ignore="LabelFor" />
 
@@ -68,8 +67,9 @@
 
             <EditText
                 android:id="@+id/passwordText"
-                style="@style/loginEditText"
+                style="@style/editText"
                 android:autofillHints="@string/passwordHint"
+                android:hint="@string/passwordHint"
                 android:inputType="textPassword"
                 tools:ignore="LabelFor" />
 
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_bottom"
             android:text="@string/registerButton"
-            android:textSize="@dimen/textSize"
+            android:textSize="@dimen/listText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
