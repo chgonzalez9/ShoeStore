@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.chgonzalez.shoestore.R
 import com.chgonzalez.shoestore.databinding.ListItemsBinding
 
+// adapter to addViews to the shoe list
 class ShoeAdapter : LinearLayout {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)

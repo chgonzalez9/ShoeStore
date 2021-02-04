@@ -25,16 +25,10 @@ class InstructionFragment : Fragment() {
             view.findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToShoeFragment())
         }
 
-        setHasOptionsMenu(true)
-
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.logout_menu, menu)
-    }
-
+    // back arrow
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item)
     }

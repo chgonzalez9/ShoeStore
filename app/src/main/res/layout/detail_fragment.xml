@@ -10,12 +10,14 @@
             type="com.chgonzalez.shoestore.utils.Shoe" />
     </data>
 
+    <!--Constraint layout is the nested components tree-->
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraints">
 
         <TextView
             android:id="@+id/detailTitle"
             style="@style/titleText"
             android:text="@string/detailTitle"
+            android:layout_marginBottom="@dimen/separation_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,6 +35,7 @@
             app:layout_constraintTop_toBottomOf="@id/detailTitle"
             app:layout_constraintVertical_chainStyle="spread" />
 
+        <!--EditText inside textfield github library-->
         <com.github.florent37.materialtextfield.MaterialTextField
             android:id="@+id/nameContainer"
             android:layout_width="wrap_content"
@@ -114,7 +117,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/separation_margin"
-            app:layout_constraintBottom_toTopOf="@id/buttonContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/companyContainer"
@@ -134,32 +136,21 @@
 
         </com.github.florent37.materialtextfield.MaterialTextField>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/buttonContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/cancelButton"
+            style="@style/buttonStyle"
+            android:text="@string/cancelButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/saveButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/saveButton"
+            style="@style/buttonStyle"
+            android:text="@string/saveButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/descriptionContainer">
-
-            <Button
-                android:id="@+id/cancelButton"
-                style="@style/buttonStyle"
-                android:text="@string/cancelButton"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/saveButton"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/saveButton"
-                style="@style/buttonStyle"
-                android:text="@string/saveButton"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/cancelButton" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintStart_toEndOf="@id/cancelButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,7 +1,10 @@
 package com.chgonzalez.shoestore.detail
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -26,6 +29,7 @@ class DetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.detail_fragment, container, false)
 
+        // fragment title in the action bar
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
         return binding.root
@@ -36,29 +40,27 @@ class DetailFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity()).get(DetailViewModel::class.java)
 
+        // setup binding for LiveData to know to observe this LifecycleOwner
         binding.lifecycleOwner = this
 
-        setHasOptionsMenu(true)
-
+        //
         binding.detailView = Shoe("Set Name", "Shoe Size", "Set Company", "Set Description")
 
+        // navigation to shoe list adding new element to the list
         binding.saveButton.setOnClickListener { view ->
             val shoe = binding.detailView
             viewModel.saveShoes(shoe)
 
-            view.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToShoeFragment())
+            view.findNavController().navigateUp()
         }
 
+        // navigation to shoe list without adding new element to the list
         binding.cancelButton.setOnClickListener { view ->
-            view.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToShoeFragment())
+            view.findNavController().navigateUp()
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.logout_menu, menu)
-    }
-
+    // back arrow
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item)
     }

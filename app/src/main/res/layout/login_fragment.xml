@@ -10,6 +10,7 @@
             type="com.chgonzalez.shoestore.utils.User" />
     </data>
 
+    <!--Constraint layout is the nested components tree for all login screen-->
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraints">
 
         <ImageView
@@ -25,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread" />
 
+        <!--EditText inside textfield github library-->
         <com.github.florent37.materialtextfield.MaterialTextField
             android:id="@+id/emailContainer"
             android:layout_width="wrap_content"

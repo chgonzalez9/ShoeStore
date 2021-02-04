@@ -24,6 +24,7 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
 
+        // fragment title in the action bar
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
         return binding.root
@@ -32,8 +33,10 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // setup binding for LiveData to know to observe this LifecycleOwner
         binding.lifecycleOwner = this
 
+        // navigation to welcome fragment
         binding.loginButton.setOnClickListener {
             setUser()
 
@@ -44,6 +47,7 @@ class LoginFragment : Fragment() {
             }
         }
 
+        // navigation to welcome fragment
         binding.registerText.setOnClickListener {
             setUser()
 
@@ -55,6 +59,7 @@ class LoginFragment : Fragment() {
         }
     }
 
+    // Authentification for email and password editText
     private fun authenticated(): Boolean {
 
         // Note: only validating email/password are not empty
@@ -62,6 +67,7 @@ class LoginFragment : Fragment() {
                 !binding.user?.password?.isEmpty()!!
     }
 
+    // funtion to save user login credentials
     private fun setUser() {
         binding.user = User(
                 binding.emailAddressText.text.toString(),

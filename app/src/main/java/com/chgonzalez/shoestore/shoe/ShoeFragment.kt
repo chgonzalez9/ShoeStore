@@ -18,7 +18,6 @@ class ShoeFragment : Fragment() {
 
     private lateinit var binding: ShoeFragmentBinding
 
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -26,8 +25,10 @@ class ShoeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.shoe_fragment, container, false)
 
+        // fragment title in the action bar
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
+        // navigation to detail screen to add elements
         binding.addItemButton.setOnClickListener { view ->
             view.findNavController().navigate(ShoeFragmentDirections.actionShoeFragmentToDetailFragment())
         }
@@ -40,10 +41,13 @@ class ShoeFragment : Fragment() {
 
         val detailViewModel = ViewModelProvider(requireActivity()).get(DetailViewModel::class.java)
 
+        // setup binding for LiveData to know to observe this LifecycleOwner
         binding.lifecycleOwner = this
 
+        // let android know this fragment have a menu
         setHasOptionsMenu(true)
 
+        // observe for detailviewmodel to take all the information about the shoe
         detailViewModel.shoe.observe(viewLifecycleOwner, { shoes ->
             if (shoes.isNotEmpty()) {
                 newShoes(shoes)
@@ -52,15 +56,18 @@ class ShoeFragment : Fragment() {
 
     }
 
+    // logout menu inflater
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.logout_menu, menu)
     }
 
+    // back arrow
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item)
     }
 
+    // addView funtion to add new element to the list
     private fun newShoes(shoes: List<Shoe>) {
         context?.let { context ->
             val container = binding.shoeList
